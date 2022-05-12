@@ -1,0 +1,13 @@
+
+@players.map do |players|
+  {
+    id: player.id,
+    valorantName: player.valorantName,
+    character: player.character,
+    role: player.role,
+    rank: player.rank,
+    image_url: .image_url,
+    created_at: player.created_at,
+    updated_at: player.updated_at
+  }
+end

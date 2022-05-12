@@ -1,0 +1,9 @@
+{
+  id: @player.id,
+  valorantName: @player.valorantName,
+  character: @player.character,
+  rank: @player.rank,
+  role: @player.role,
+  created_at: @recipe.created_at,
+  updated_at: @recipe.updated_at
+}
