@@ -1,7 +1,7 @@
-class CreatePlayers < ActiveRecord::Migration[7.0]
+class CreateAccounts < ActiveRecord::Migration[7.0]
   def change
-    create_table :players do |t|
-      t.string :valorantName
+    create_table :accounts do |t|
+      t.string :name
       t.string :character
       t.string :role
       t.string :rank
