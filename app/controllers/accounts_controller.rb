@@ -3,6 +3,7 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(
+      user_id: params[:user_id],
       name: params[:name],
       character: params[:character],
       role: params[:role],
@@ -17,17 +18,14 @@ class AccountsController < ApplicationController
 
   def update
     @account = Account.find_by(id: params[:id])
-    if @account == current_account
-      @account = current_account
-      @account.name = params[:name] || @account.name
-      @account.character = params[:character] || @account.character
-      @account.role = params[:role] || @account.role
-      @account.rank = params[:rank] || @account.rank
-      if @account.save
-        render "show.json.jb"
-      else
-        render json: { errors: @account.errors.full_messages }, status: :bad_request
-      end
+    @account.name = params[:name] || @account.name
+    @account.character = params[:character] || @account.character
+    @account.role = params[:role] || @account.role
+    @account.rank = params[:rank] || @account.rank
+    if @account.save
+      render :show
+    else
+      render json: { errors: @account.errors.full_messages }, status: :bad_request
     end
   end
 
@@ -39,11 +37,11 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find_by(id: params[:id])
-    render "show.json.jb"
+    render :show
   end
 
   def index
-    @accounts = current_user.accounts
-    render "index.json.jb"
+    @accounts = Account.all
+    render :index
   end
 end

@@ -1,9 +1,0 @@
-{
-  id: @account.id,
-  name: @account.name,
-  character: @account.character,
-  rank: @account.rank,
-  role: @account.role,
-  created_at: @account.created_at,
-  updated_at: @account.updated_at
-}
