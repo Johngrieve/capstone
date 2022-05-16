@@ -1,6 +1,4 @@
-class ApplicationController < ActionController::API
-  protect_from_forgery with: :null_session
-
+class ApplicationController < ActionController::Base
   def current_user
     auth_headers = request.headers["Authorization"]
     if auth_headers.present? && auth_headers[/(?<=\A(Bearer ))\S+\z/]
@@ -18,8 +16,6 @@ class ApplicationController < ActionController::API
       end
     end
   end
-
-  helper_method :current_user
 
   def authenticate_user
     unless current_user

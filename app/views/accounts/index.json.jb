@@ -1,0 +1,3 @@
+@accounts.map do |account|
+  render partial: "account.json.jb", locals: { account: account }
+end
